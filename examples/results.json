@@ -1,0 +1,23 @@
+{
+  "summary": {
+    "total_files": 2,
+    "total_code": 32,
+    "total_comment": 13,
+    "total_blank": 14,
+    "total_lines": 59
+  },
+  "files": {
+    "examples/multiline_comments.nf": {
+      "code": 20,
+      "comment": 11,
+      "blank": 8,
+      "total": 39
+    },
+    "examples/workflow.cwl": {
+      "code": 12,
+      "comment": 2,
+      "blank": 6,
+      "total": 20
+    }
+  }
+}

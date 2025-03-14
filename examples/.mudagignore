@@ -1,0 +1,42 @@
+# Mudag Ignore File
+# This file specifies patterns of files and directories to exclude from analysis.
+# Similar to .gitignore, it uses glob patterns to match file paths.
+
+# Default directories to ignore (previously handled by --exclude)
+.git/
+__pycache__/
+node_modules/
+venv/
+env/
+
+# Ignore all .log files
+*.log
+
+# Ignore all backup files
+*.bak
+*.backup
+*~
+
+# Ignore temporary directories
+temp/
+tmp/
+.cache/
+
+# Ignore specific file types
+*.tmp
+*.temp
+*.swp
+
+# Ignore specific workflow files (examples)
+broken_workflow.cwl
+test_workflow.nf
+experimental/
+
+# Ignore large data directories
+data/
+datasets/
+results/
+
+# Ignore specific directories by path (relative to repo root)
+test_repos/external-workflows/
+examples/deprecated/ 
