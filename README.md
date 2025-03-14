@@ -28,6 +28,10 @@ A CLI tool for analyzing research software repositories with a focus on workflow
 git clone https://github.com/aaronstrachardt/mudag.git
 cd mudag
 
+# Create and activate Virtual Environment (recommended)
+python3 -m venv venv
+source venv/bin/activate
+
 # Install the package in development mode
 pip install -e .
 ```
