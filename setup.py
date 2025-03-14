@@ -13,10 +13,10 @@ setup(
     description="A tool for analyzing research software repositories with focus on workflow languages",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    author="Mudag Contributors",
-    url="https://github.com/username/mudag",
+    author="Aaron Strachardt",
+    url="https://github.com/aaronstrachardt/mudag",
     project_urls={
-        "Bug Tracker": "https://github.com/username/mudag/issues",
+        "Bug Tracker": "https://github.com/aaronstrachardt/mudag/issues",
     },
     packages=find_packages("src"),
     package_dir={"": "src"},

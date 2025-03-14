@@ -7,7 +7,7 @@ Thank you for considering contributing to Mudag! Here are some guidelines to hel
 1. Fork the repository
 2. Clone your fork:
    ```bash
-   git clone https://github.com/yourusername/mudag.git
+   git clone https://github.com/aaronstrachardt/mudag.git
    ```
 3. Install in development mode:
    ```bash
