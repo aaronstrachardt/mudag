@@ -1,6 +1,5 @@
 """Mudag setup script."""
 
-import os
 from setuptools import find_packages, setup
 
 # Read the long description from README.md
@@ -40,4 +39,4 @@ setup(
         "Topic :: Scientific/Engineering",
         "Topic :: Software Development :: Quality Assurance",
     ],
-) 
+)

@@ -1,1 +1,1 @@
-"""Core functionality for the Mudag tool.""" 
+"""Core functionality for the Mudag tool."""

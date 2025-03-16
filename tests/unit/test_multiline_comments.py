@@ -2,9 +2,7 @@
 
 import os
 import tempfile
-from typing import Dict, List
 
-import pytest
 
 from mudag.core.analyzer import count_lines, is_workflow_file
 
@@ -23,11 +21,13 @@ def example_function():
     print("Hello, world!")  # Inline comment
 ''')
         temp_path = temp_file.name
-    
+
     try:
         result = count_lines(temp_path)
         assert result["code"] == 2  # def line and print line
-        assert result["comment"] == 6  # 4 docstring lines, 1 regular comment, 1 inline comment
+        assert (
+            result["comment"] == 6
+        )  # 4 docstring lines, 1 regular comment, 1 inline comment
         assert result["blank"] == 1  # 1 blank line at the start
         assert result["total"] == 9  # Total lines
     finally:
@@ -45,7 +45,7 @@ def example_function():
     return x
 ''')
         temp_path = temp_file.name
-    
+
     try:
         result = count_lines(temp_path)
         assert result["code"] == 4  # def line, x = line, y = line, return line
@@ -83,11 +83,13 @@ process exampleProcess {
 }
 ''')
         temp_path = temp_file.name
-    
+
     try:
         result = count_lines(temp_path)
         # Count lines that are not comments or blank
-        code_lines = 11  # process, input, val x, output, val y, script, """, echo $x, """, }
+        code_lines = (
+            11  # process, input, val x, output, val y, script, """, echo $x, """, }
+        )
         assert result["code"] == code_lines
         assert result["comment"] == 5  # 1 single line + 4 multiline comment lines
         assert result["blank"] == 6  # 6 blank lines
@@ -99,7 +101,7 @@ process exampleProcess {
 def test_cwl_comments() -> None:
     """Test that CWL comments are properly counted."""
     with tempfile.NamedTemporaryFile("w", suffix=".cwl", delete=False) as temp_file:
-        temp_file.write('''#!/usr/bin/env cwl-runner
+        temp_file.write("""#!/usr/bin/env cwl-runner
 
 # This is a comment in CWL
 # Another comment
@@ -120,9 +122,9 @@ outputs:
     type: stdout
 
 stdout: output.txt
-''')
+""")
         temp_path = temp_file.name
-    
+
     try:
         result = count_lines(temp_path)
         assert result["comment"] == 3  # 3 comment lines (including shebang)
@@ -138,25 +140,25 @@ def test_workflow_detection() -> None:
     assert is_workflow_file("workflow.ga") is True
     assert is_workflow_file("workflow.galaxy") is True
     assert is_workflow_file("workflow.gxwf") is True
-    
+
     # Test CWL workflow files
     assert is_workflow_file("workflow.cwl") is True
-    
+
     # Test Nextflow workflow files
     assert is_workflow_file("workflow.nf") is True
     assert is_workflow_file("workflow.nextflow") is True
     assert is_workflow_file("nextflow.config") is True
-    
+
     # Test Snakemake workflow files
     assert is_workflow_file("Snakefile") is True
     assert is_workflow_file("workflow.smk") is True
     assert is_workflow_file("workflow.snakefile") is True
     assert is_workflow_file("workflow.snakemake") is True
     assert is_workflow_file("workflow.rules") is True
-    
+
     # Test KNIME workflow files
     assert is_workflow_file("workflow.knwf") is True
     assert is_workflow_file("workflow.workflow.knime") is True
-    
+
     # Test WDL workflow files
-    assert is_workflow_file("workflow.wdl") is True 
+    assert is_workflow_file("workflow.wdl") is True

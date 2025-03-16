@@ -1,1 +1,1 @@
-"""Utility functions for the Mudag tool.""" 
+"""Utility functions for the Mudag tool."""

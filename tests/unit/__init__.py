@@ -1,1 +1,1 @@
-"""Unit tests for Mudag.""" 
+"""Unit tests for Mudag."""

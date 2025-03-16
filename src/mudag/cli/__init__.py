@@ -1,1 +1,1 @@
-"""CLI module for the Mudag tool.""" 
+"""CLI module for the Mudag tool."""
